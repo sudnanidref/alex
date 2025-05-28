@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sampai Jumpa, Mba Ica!</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #7e5bef, #fb7185, #facc15);
+      background-size: 400% 400%;
+      animation: gradient 15s ease infinite;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+      text-align: center;
+      padding: 20px;
+    }
+
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-top: 1rem;
+      animation: fadeDown 1s ease-out forwards;
+      opacity: 0;
+    }
+
+    p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin-bottom: 2rem;
+      animation: fadeIn 2s ease-out forwards;
+      opacity: 0;
+    }
+
+    .quote {
+      background-color: rgba(255, 255, 255, 0.15);
+      padding: 1.5rem 2rem;
+      border-radius: 1rem;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      font-size: 1rem;
+      animation: popIn 1s ease-out 2s forwards;
+      opacity: 0;
+      transform: scale(0.8);
+      max-width: 500px;
+    }
+
+    .footer {
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      opacity: 0;
+      animation: fadeIn 2s ease-out 3s forwards;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 2rem;
+      animation: fadeIn 1.5s ease-out 2.5s forwards;
+      opacity: 0;
+    }
+
+    .gallery img {
+      width: 200px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 2px solid white;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    audio {
+      display: none;
+    }
+
+    @keyframes fadeDown {
+      from { transform: translateY(-50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    @keyframes popIn {
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: white;
+      animation: fall 5s linear infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(-100px) rotate(0); }
+      100% { transform: translateY(100vh) rotate(720deg); }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Sampai Jumpa, Mba Ica!</h1>
+  <p>
+    Terima kasih atas semua kenangan indah yang telah kita lalui bersama di kantor ini.
+    Semoga sukses selalu di jalan yang baru!
+  </p>
+  <div class="quote">
+    “Persahabatan tidak berakhir di perpisahan. Itu hanya awal dari kenangan yang indah.”
+  </div>
+
+  <div class="gallery">
+    <img src="foto1.jpg" alt="Kenangan 1" />
+    <img src="foto2.jpg" alt="Kenangan 2" />
+    <img src="foto3.jpg" alt="Kenangan 3" />
+  </div>
+
+  <div class="footer">Dari teman sekantormu !</div>
+
+  <!-- Background Music -->
+  <audio autoplay loop>
+    <source src="musik.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- Confetti Effect -->
+  <script>
+    for (let i = 0; i < 50; i++) {
+      let confetti = document.createElement('div');
+      confetti.classList.add('confetti');
+      confetti.style.left = Math.random() * 100 + 'vw';
+      confetti.style.animationDuration = 3 + Math.random() * 2 + 's';
+      confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 80%)`;
+      document.body.appendChild(confetti);
+    }
+  </script>
+
+</body>
+</html>
